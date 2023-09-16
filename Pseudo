@@ -1,5 +1,4 @@
                                                        Pseudo code for Printf
-first:First create the fuction prototype(int _printf(const char *format, ...);).
-Second:Write the functoin body.
+First: First create the fuction prototype(int _printf(const char *format, ...);).
+Second: Write the function body.
 
- 
