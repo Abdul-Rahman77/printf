@@ -15,4 +15,6 @@ int binary_handler(va_list list, char main_buff[], int i);
 int octal_handler(va_list list, char main_buff[], int i);
 int hexadecimal_x_handler(va_list list, char main_buff[], int i);
 int hexadecimal_X_handler(va_list list, char main_buff[], int i);
+int printf_support(const char *format, va_list get_list, int i, int count_char, char temp_buff[]);
+int check_specifier(const char *format, int i, int count_char, va_list get_list, char temp_buff[]);
 #endif
