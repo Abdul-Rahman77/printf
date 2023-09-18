@@ -3,7 +3,7 @@
  * char_handler - can handle any character
  * @list:naiming the variadic function
  * @buff:any empty array to store the characters
- * @i:countes the characters
+ * i:counter
  *
  * Return:the characters
  */
