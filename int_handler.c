@@ -1,9 +1,14 @@
 #include "main.h"
 #define INT_BUFF 20
+
 /**
- *
- *
+ * int_handler - handles the %d and %i flags in the format string
+ * @list: the va_list variable for the printf
+ * @main_buff: represents the buffer storing all chars to be printed
+ * @main_count: keeps track of all the chars to be printed
+ * Return: returns the total chars to be printed
  */
+
 int int_handler(va_list list, char main_buff[], int main_count)
 {
 	int value = va_arg(list, int);
