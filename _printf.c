@@ -1,53 +1,18 @@
 #include "main.h"
-
 /**
- *
- *
+ * _printf - prints a formatted string to the stdout
+ * @format: the format string to be printed
+ * Return: the total number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list get_list;
 	int i = 0;
 	int count_char = 0;
+	char temp_buff[BUFFER_SIZE];
+	int index_of_buffer = 0;
 
-	if (format != NULL) {
-		va_start(get_list, format);
-		while (format[i] != '\0') {
-			if (format[i] == '%') {
-				format[i++];
-				if (format[i] == 'c') {
-					char character = va_arg(get_list, int);
-					_putchar(character);
-					count_char++;
-				}
-				else if (format[i] == 's') {
-					char *string = va_arg(get_list, char*);
-					int count = 0;
-
-					while (string[count] != '\0') {
-						count++;
-					}
-
-					write(1, string, count);
-					count_char += count;
-				}
-
-			}
-
-			else {
-				_putchar(format[i]);
-				count_char++;
-			}
-			i++;
-		}
-
-	}
-	else {
-		return (-1);
-	}
-
-	va_end(get_list);
-	return count_char;
-
+	va_start(get_list, format);
+	count_char = printf_support(format, get_list, i, count_char, temp_buff);
+	return (count_char);
 }
