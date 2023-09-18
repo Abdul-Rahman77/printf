@@ -10,7 +10,6 @@ int _printf(const char *format, ...)
 	int i = 0;
 	int count_char = 0;
 	char temp_buff[BUFFER_SIZE];
-	int index_of_buffer = 0;
 
 	va_start(get_list, format);
 	count_char = printf_support(format, get_list, i, count_char, temp_buff);

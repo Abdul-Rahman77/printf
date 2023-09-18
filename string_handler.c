@@ -12,7 +12,7 @@
 int string_handler(va_list list, char buff[], int i)
 {
 	char *str = va_arg(list, char*);
-	char count = 0;
+	int count = 0;
 
 	while (str[count] != '\0')
 	{

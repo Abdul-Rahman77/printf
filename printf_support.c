@@ -46,7 +46,7 @@ int printf_support(const char *format, va_list get_list,
 		{
 			if (format[i] == '%')
 			{
-				format[i++];
+				i++;
 				count_char = check_specifier(format, i, count_char, get_list, temp_buff);
 			}
 			else
