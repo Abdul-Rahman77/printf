@@ -63,8 +63,8 @@ int octal_handler(va_list list, char main_buff[], int main_count)
 	char buffer[INT_BUFF];
 	int parse_count = 0;
 	int i, j;
-        int mini_parser = 0;
-        char swap;
+	int mini_parser = 0;
+	char swap;
 
 	if (value < 0)
 		return (-1);
@@ -108,8 +108,8 @@ int hexadecimal_x_handler(va_list list, char main_buff[], int main_count)
 	char buffer[INT_BUFF];
 	int parse_count = 0;
 	int i, j;
-        int mini_parser = 0;
-        char swap;
+	int mini_parser = 0;
+	char swap;
 	int var_char;
 	char extra_char[] = "abcdef";
 
@@ -160,8 +160,8 @@ int hexadecimal_X_handler(va_list list, char main_buff[], int main_count)
 	char buffer[INT_BUFF];
 	int parse_count = 0;
 	int i, j;
-        int mini_parser = 0;
-        char swap;
+	int mini_parser = 0;
+	char swap;
 	int var_char;
 	char extra_char[] = "ABCDEF";
 
