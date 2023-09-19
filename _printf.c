@@ -112,7 +112,7 @@ int char_handler(va_list list, char buff[], int i)
 
 int string_handler(va_list list, char buff[], int i)
 {
-	char *str = malloc(char *sizeof(va_arg(list, char*));
+	char *str = va_arg(list, char*);
 	int count = 0;
 
 	while (str[count] != '\0')
@@ -121,6 +121,6 @@ int string_handler(va_list list, char buff[], int i)
 		count++;
 	}
 	i += count;
-	free(str);
 	return (i);
 }
+

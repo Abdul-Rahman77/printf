@@ -7,6 +7,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int _puts(const char *str);
 void print_string(char *str);
 int _strlen(char *str);
 int char_handler(va_list list, char buff[], int i);
