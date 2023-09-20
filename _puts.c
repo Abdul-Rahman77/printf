@@ -6,7 +6,7 @@
  * Return: the length of the character printed
  */
 
-int _puts(const char *str)
+int _puts(char *str)
 {
 	write (1, str, _strlen(str));
 	return (_strlen(str));

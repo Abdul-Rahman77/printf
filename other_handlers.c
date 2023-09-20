@@ -3,118 +3,91 @@
 
 /**
  * unsigned_int_handler - handles the %b flag in the format string
- * octal_handler - handles the %o flag in the format string
- * hexadecimal_x_handler - handles the %x flag in the format string
- * hexadecimal_X_handler - handles the %X flag in the format string
- * @list: the va_list variable for the printf
- * @main_buff: represents the buffer storing all chars to be printed
- * @main_count: keeps track of all the chars to be printed
+ * @value: unsigned int to be printed
  * Return: returns the total chars to be printed
  */
 
-int unsigned_int_handler(va_list list, char main_buff[], int main_count)
+int unsigned_int_handler(unsigned int value)
 {
-	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
 	int parse_count = 0;
-	int i, j;
-	int mini_parser = 0;
-	char swap;
+	int count_char = 0;
 
-	if (value < 0)
-		return (-1);
+	if (value == 0)
+	{
+		count_char += _putchar('0');
+		return (count_char);
+	}
 
-	do {
+	while (value > 0)
+	{
 		buffer[parse_count++] = '0' + (value % 10);
 		value = (value / 10);
-	} while (value > 0);
-
-	for (i = 0, j = parse_count - 1; i < j; i++, j--)
-	{
-		swap = buffer[i];
-
-		buffer[i] = buffer[j];
-		buffer[j] = swap;
 	}
-	buffer[parse_count] = '\0';
 
-	while (buffer[mini_parser] != '\0')
+	count_char += parse_count;
+
+	while (--parse_count >= 0)
 	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
-		mini_parser++;
+		_putchar(buffer[parse_count]);
 	}
-	main_count += parse_count;
-	return (main_count);
+	return (count_char);
 
 }
 
+
 /**
  * octal_handler - handles the %o flag in the format string
- * @list: the va_list variable for the printf
- * @main_buff: represents the buffer storing all chars to be printed
- * @main_count: keeps track of all the chars to be printed
+ * @value: unsigned int to be printed
  * Return: returns the total chars to be printed
  */
 
 
-int octal_handler(va_list list, char main_buff[], int main_count)
+int octal_handler(unsigned int value)
 {
-	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
 	int parse_count = 0;
-	int i, j;
-	int mini_parser = 0;
-	char swap;
+	int count_char = 0;
 
-	if (value < 0)
-		return (-1);
-
-	do {
+	if (value == 0)
+	{
+		count_char += _putchar('0');
+		return (count_char);
+	}
+	while (value > 0)
+	{
 		buffer[parse_count++] = '0' + (value % 8);
 		value = (value / 8);
-	} while (value > 0);
-
-	for (i = 0, j = parse_count - 1; i < j; i++, j--)
-	{
-		swap = buffer[i];
-
-		buffer[i] = buffer[j];
-		buffer[j] = swap;
 	}
-	buffer[parse_count] = '\0';
-
-	while (buffer[mini_parser] != '\0')
+	count_char += parse_count;
+	while (--parse_count >= 0)
 	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
-		mini_parser++;
+		_putchar(buffer[parse_count]);
 	}
-	main_count += parse_count;
-	return (main_count);
-
+	return (count_char);
 }
 
 /**
  * hexadecimal_x_handler - handles the %x flag in the format string
- * @list: the va_list variable for the printf
- * @main_buff: represents the buffer storing all chars to be printed
- * @main_count: keeps track of all the chars to be printed
+ * @value: unsigned int to be printed
  * Return: returns the total chars to be printed
  */
 
 
-int hexadecimal_x_handler(va_list list, char main_buff[], int main_count)
+int hexadecimal_x_handler(unsigned int value)
 {
-	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
 	int parse_count = 0;
-	int i, j;
-	int mini_parser = 0;
-	char swap;
+	int i;
+	int count_char = 0;
 	int var_char;
 	char extra_char[] = "abcdef";
 
-	if (value < 0)
-		return (-1);
+	if (value == 0)
+	{
+		count_char += _putchar('0');
+		return (count_char);
+	}
 
 	while (value > 0)
 	{
@@ -126,47 +99,35 @@ int hexadecimal_x_handler(va_list list, char main_buff[], int main_count)
 		value = (value / 16);
 	}
 
-	for (i = 0, j = parse_count - 1; i < j; i++, j--)
+	for (i = parse_count - 1; i >= 0; i--)
 	{
-		swap = buffer[i];
-
-		buffer[i] = buffer[j];
-		buffer[j] = swap;
+		count_char += _putchar(buffer[i]);
 	}
-	buffer[parse_count] = '\0';
-
-	while (buffer[mini_parser] != '\0')
-	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
-		mini_parser++;
-	}
-	main_count += parse_count;
-	return (main_count);
+	return (count_char);
 
 }
 
 /**
- * hexadecimal_X_handler - handles the %X flag in the format string
- * @list: the va_list variable for the printf
- * @main_buff: represents the buffer storing all chars to be printed
- * @main_count: keeps track of all the chars to be printed
+ * hexadecimal_x_handler - handles the %x flag in the format string
+ * @value: unsigned int to be printed
  * Return: returns the total chars to be printed
  */
 
 
-int hexadecimal_X_handler(va_list list, char main_buff[], int main_count)
+int hexadecimal_X_handler(unsigned int value)
 {
-	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
 	int parse_count = 0;
-	int i, j;
-	int mini_parser = 0;
-	char swap;
+	int i;
+	int count_char = 0;
 	int var_char;
 	char extra_char[] = "ABCDEF";
 
-	if (value < 0)
-		return (-1);
+	if (value == 0)
+	{
+		count_char += _putchar('0');
+		return (count_char);
+	}
 
 	while (value > 0)
 	{
@@ -177,20 +138,12 @@ int hexadecimal_X_handler(va_list list, char main_buff[], int main_count)
 			buffer[parse_count++] = '0' + var_char;
 		value = (value / 16);
 	}
-	for (i = 0, j = parse_count - 1; i < j; i++, j--)
-	{
-		swap = buffer[i];
 
-		buffer[i] = buffer[j];
-		buffer[j] = swap;
-	}
-	buffer[parse_count] = '\0';
-
-	while (buffer[mini_parser] != '\0')
+	for (i = parse_count - 1; i >= 0; i--)
 	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
-		mini_parser++;
+		count_char += _putchar(buffer[i]);
 	}
-	main_count += parse_count;
-	return (main_count);
+	return (count_char);
+
 }
+

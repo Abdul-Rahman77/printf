@@ -9,7 +9,7 @@
  * Return: returns the total chars to be printed
  */
 
-int int_handler(va_list list, char main_buff[], int main_count)
+int int_handler(va_list list, int *count_char)
 {
 	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
@@ -42,11 +42,10 @@ int int_handler(va_list list, char main_buff[], int main_count)
 
 	while (buffer[mini_parser] != '\0')
 	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
+		*count_char += _putchar(buffer[mini_parser]);
 		mini_parser++;
 	}
-	main_count += parse_count;
-	return (main_count);
+	return (*count_char);
 
 }
 
@@ -58,7 +57,7 @@ int int_handler(va_list list, char main_buff[], int main_count)
  * Return: returns the total chars to be printed
  */
 
-int binary_handler(va_list list, char main_buff[], int main_count)
+int binary_handler(va_list list, int *count_char)
 {
 	int value = va_arg(list, int);
 	char buffer[INT_BUFF];
@@ -68,9 +67,8 @@ int binary_handler(va_list list, char main_buff[], int main_count)
 
 	if (value == 0)
 	{
-		main_buff[main_count] = '0';
-		main_count++;
-		return (main_count);
+		*count_char += _putchar('0');
+		return (*count_char);
 	}
 	else if (value < 0)
 	{
@@ -93,10 +91,9 @@ int binary_handler(va_list list, char main_buff[], int main_count)
 
 	while (buffer[mini_parser] != '\0')
 	{
-		main_buff[main_count + mini_parser] = buffer[mini_parser];
+		*count_char += _putchar(buffer[mini_parser]);
 		mini_parser++;
 	}
-	main_count += parse_count;
-	return (main_count);
+	return (*count_char);
 
 }

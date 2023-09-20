@@ -7,18 +7,17 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _puts(const char *str);
+int _puts(char *str);
 void print_string(char *str);
 int _strlen(char *str);
-int char_handler(va_list list, char buff[], int i);
-int string_handler(va_list list, char buff[], int i);
-int int_handler(va_list list, char main_buff[], int i);
-int binary_handler(va_list list, char main_buff[], int i);
-int octal_handler(va_list list, char main_buff[], int i);
-int hexadecimal_x_handler(va_list list, char main_buff[], int i);
-int hexadecimal_X_handler(va_list list, char main_buff[], int i);
-int printf_support(const char *format, va_list get_list, int i,
-		int count_char, char temp_buff[]);
-int check_specifier(const char *format, int i,
-		int count_char, va_list get_list, char temp_buff[]);
+int char_handler(va_list list, int *count_char);
+int string_handler(va_list list, int *count_char);
+int int_handler(va_list list, int *count_char);
+int binary_handler(va_list list, int *count_char);
+int unsigned_int_handler(unsigned int value);
+int octal_handler(unsigned int value);
+int hexadecimal_x_handler(unsigned int value);
+int hexadecimal_X_handler(int unsigned value);
+int check_specifier(const char *format, int *i,
+		int *count_char, va_list get_list);
 #endif
