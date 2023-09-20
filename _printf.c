@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				i++;
-				check_specifier(format, &i, &count_char, get_list);
+				check_specifier(format, &i, &count_char, get_list, 0);
 			}
 			else
 			{
@@ -38,11 +38,10 @@ int _printf(const char *format, ...)
 
 /**
  * char_handler - can handle any character
- * @list:naiming the variadic function
- * @buff:any empty array to store the characters
- * @i:countes the characters
+ * @list: naming the variadic function
+ * @count_char: countes the characters
  *
- * Return:the characters
+ * Return: the characters
  */
 int char_handler(va_list list, int *count_char)
 {
@@ -52,13 +51,11 @@ int char_handler(va_list list, int *count_char)
 	return (*count_char);
 }
 
-#include "main.h"
 
 /**
  * string_handler - handles the %X flag in the format string
  * @list: the va_list variable for the printf
- * @buff: represents the buffer storing all chars to be printed
- * @i: keeps track of all the chars to be printed
+ * @count_char: keeps track of all the chars to be printed
  * Return: returns the total chars to be printed
  */
 

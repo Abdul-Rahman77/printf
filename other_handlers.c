@@ -108,7 +108,7 @@ int hexadecimal_x_handler(unsigned int value)
 }
 
 /**
- * hexadecimal_x_handler - handles the %x flag in the format string
+ * hexadecimal_X_handler - handles the %X flag in the format string
  * @value: unsigned int to be printed
  * Return: returns the total chars to be printed
  */

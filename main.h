@@ -17,7 +17,7 @@ int binary_handler(va_list list, int *count_char);
 int unsigned_int_handler(unsigned int value);
 int octal_handler(unsigned int value);
 int hexadecimal_x_handler(unsigned int value);
-int hexadecimal_X_handler(int unsigned value);
-int check_specifier(const char *format, int *i,
-		int *count_char, va_list get_list);
+int hexadecimal_X_handler(unsigned int value);
+int check_specifier(const char *format, int *i, int *count_char,
+		va_list get_list, unsigned int value);
 #endif
